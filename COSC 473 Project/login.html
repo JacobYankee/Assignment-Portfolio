@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Admin Portal</title>
+        <style>
+            body{
+                text-align:center;
+                background-color: tomato;
+                color: white;
+                font-family: Tahoma, sans-serif;
+            }
+            hr{
+				height:2px;
+				border-width:0;
+				color:black;
+				background-color:orangered;
+				}
+            img:hover{
+                width: 16%;
+            }
+        </style>
+    </head>
+    <body>
+        <a href = "mainpage.php"><img src = "https://cdn.discordapp.com/attachments/1180984530451038319/1180984602895077476/Logo.png?ex=657f689e&is=656cf39e&hm=6fcfaf4c74fc340f51a6b0eb15a2632e820cf1c52e15f20cb64dd6207d2db4d0&" width = "15%"></a>
+        <br>
+        <p>Click above to return to the home page</p>
+        <hr>
+        <form method = "post" action = "addpage.php">
+            <label>Enter password</label>
+            <input type = "text" name = "pass">
+            <input type = "submit">
+        </form>
+    </body>
+</html>

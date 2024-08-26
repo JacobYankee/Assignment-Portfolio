@@ -1,0 +1,2 @@
+# COSC 473 - Big Data 2
+The files here are for a project from Big Data 2 which utilized AWS services. The project was a mock web store for a software retailer. The site can no longer be viewed through AWS as the account was through my school and the account was deactivated.
