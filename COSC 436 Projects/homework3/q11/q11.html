@@ -1,0 +1,77 @@
+<!--Jacob Yankee
+COSC 436
+Maniccam
+Homework 3-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>University Cost Calculator</title>
+        <style>
+            body{
+                text-align:center;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                color:ghostwhite;
+	            font-size:110%;
+	            background-image:url('https://www.emich.edu/communications/images/zoom-wallpapers/emu-background-option-5.jpg');
+	            background-size: 1920px 1080px;
+	            background-repeat:no-repeat;
+            }
+            h1, h3{
+	            background-color:seagreen;
+	            width:35%;
+	            text-align:center;
+	            margin-left:auto;
+	            margin-right:auto;
+	            border: 5px solid white;
+	            padding:5px;
+	        }
+            hr{
+	            height:2px;
+	            border-width:0;
+	            color:black;
+	            background-color:lawngreen;
+	        }
+            #calc{
+	            background-color:seagreen;
+	            width:20%;
+	            text-align:center;
+	            margin-left:auto;
+	            margin-right:auto;
+	            border: 5px solid white;
+	            padding:5px;
+	        }
+        </style>
+
+    </head>
+
+    <body>
+        <h1>University Cost Calculator</h1>
+        <br>
+        <hr>
+        <h3>Enter your credit hours and check off the boxes to determine how much money you owe</h3>
+        <div id = "calc">
+            <!--get values using form-->
+        <form method = "post" action = "http://localhost/q11.php">
+            <label>Credits:</label>
+            <input type = "text" name = "credits" size = "1"></input>
+        <br>
+            <label>Status:</label>
+        <br>
+            <input type = "radio" name = "rad" value = "ugrad">Undergrad</input>
+            <input type = "radio" name = "rad" value = "grad">Graduate</input>
+        <br>
+            <input type = "radio" name = "state" value = "in">In State</input>
+            <input type = "radio" name = "state" value = "out">Out of State</input>
+        <br>
+            <label>Additional costs:</label>
+        <br>
+            <input type = "checkbox" name = "dorm">Dormitory</input>
+            <input type = "checkbox" name = "dine">Dining</input>
+            <input type = "checkbox" name = "park">Parking</input>
+        <br>
+        <input type = "submit">
+        <input type ="reset">
+        </form>
+        </div>
+    </body>
+</html>

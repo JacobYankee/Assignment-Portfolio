@@ -1,0 +1,64 @@
+<!--Jacob Yankee
+COSC 436
+Maniccam
+Homework 3-->
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <title>Jacob Yankee Resume Portal</title>
+
+		<meta name="author" content = "Jacob Yankee">
+		<meta name="keywords" content="resume computer science eastern michigan university">
+		<style>
+		/*name and contact information centered*/
+		    h1 {
+			    text-align:center;
+				}
+			h3 {
+				text-align:center;
+				}
+				a:link {color:slateblue;}
+				a:visited {color:slategray;}
+				a:hover {color:deepskyblue;}
+				a:active {color:steelblue;}
+			hr {
+				height:2px;
+				border-width:0;
+				color:darkslategray;
+				background-color:darkslategray;
+				}
+			body {
+				background-color:antiquewhite;
+				}
+			/*odd and even class tags to alter background colors, fonts, font sizes, and alignments*/
+			.odd {
+				font-family:Georgia, serif;
+				}
+			.even {
+				font-size:110%;
+				font-family:Garamond, serif;
+				background-color:floralwhite;
+				text-align:center;
+				}
+				
+		</style>
+    </head>
+
+    <body>
+	    <h1>Jacob Yankee Resume Portal</h1>
+		<div class="even">
+		<!--horizontal rule included in even div tags to help separate colors-->
+	<hr> 
+			<h3>Enter Password</h3>
+				<h4>To access the resume, enter a password.</h4>
+				<!--form to obtain input-->
+            <form method="post" action="http://localhost/q12.php">
+                <input type="text" name = "password" placeholder="Enter password">
+                <input type = "submit">
+            </form>
+	<hr>	
+		</div>
+
+    </body>
+</html>
+

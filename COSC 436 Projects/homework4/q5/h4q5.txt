@@ -1,0 +1,72 @@
+===Database h4q5
+
+== Table structure for table employee
+
+|------
+|Column|Type|Null|Default
+|------
+|//**passcode**//|varchar(20)|No|
+== Dumping data for table employee
+
+|passcode9
+== Table structure for table items
+
+|------
+|Column|Type|Null|Default
+|------
+|//**iID**//|int(11)|No|
+|iName|varchar(90)|No|
+|iPrice|float|No|
+== Dumping data for table items
+
+|0|White Tshirt|12.99
+|1|Cardboard Box|0.99
+|2|Glass of Water|2.99
+|3|Massive Limestone Cube|999.99
+|4|Suspicious Looking Eye|19.99
+|5|Fish|4.99
+|6|Laptop|149.99
+|7|Cool Hat|14.99
+|8|Uncool Hat|14.99
+|9|Twenty Five Dollars|25.99
+== Table structure for table orders
+
+|------
+|Column|Type|Null|Default
+|------
+|//**AutoID**//|int(11)|No|
+|userID|varchar(20)|No|
+|itemName|varchar(90)|No|
+|iID|int(11)|No|
+|numItems|int(11)|No|
+|shipStatus|varchar(20)|No|
+|oPrice|float|No|
+== Dumping data for table orders
+
+|26908|test|White Tshirt|0|1|Not Shipped|12.99
+|39126|earl|Fish|5|1|Not Shipped|4.99
+|61436|test|Glass of Water|2|3|Shipped|8.97
+|63072|test|Fish|5|5|Not Shipped|24.95
+|64469|test|Twenty Five Dollars|9|2|Not Shipped|51.98
+|89554|test|Massive Limestone Cube|3|1|Not Shipped|999.99
+|95521|test|White Tshirt|0|2|Not Shipped|25.98
+|96371|earl|Cool Hat|7|3|Shipped|44.97
+|96551|test|Twenty Five Dollars|9|2|Not Shipped|51.98
+== Table structure for table users
+
+|------
+|Column|Type|Null|Default
+|------
+|id|varchar(20)|No|
+|uPwd|varchar(20)|No|
+|uName|varchar(30)|No|
+|uAddress|varchar(50)|No|
+|uCard|varchar(30)|No|
+== Dumping data for table users
+
+| | | | | 
+| | | | | 
+|test|password|Bill|123 bill road|12345
+|tester|pass|phil|321 phil lane|55555
+|bobman12|awawa|bob|123 lane|11111
+|earl|pass|Earl|1234 Lane|1234

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!--Jacob Yankee
+COSC 436
+Maniccam
+Homework 2-->
+<html lang="en" onmouseover = "box1()" onmouseout = "box2()" onmousemove = "box1()">
+	<head>
+		<title>Eastern Michigan University Office List</title>
+		
+		<meta name="author" content = "Jacob Yankee">
+		<meta name="keywords" content="eastern michigan university offices honors computer science engineering chemistry study abroad">
+		<style>
+			/*table styling to center table*/
+			table, th, td{
+				margin-left:auto;
+				margin-right:auto;
+				border: 1px solid white;
+				border-collapse:collapse;
+				font-size:110%
+				}
+			body{
+				font-family:Arial, sans-serif;
+				background-color:forestgreen;
+				color:ghostwhite;
+				}
+			hr{
+				height:2px;
+				border-width:0;
+				color:black;
+				background-color:lawngreen;
+				}
+			/*headings with bakground colors*/	
+			h1, h2{
+				text-align:center;
+				background-color:seagreen;
+				}
+			a:link {color:whitesmoke;}
+			a:visited {color:silver;}
+			a:hover {color:ivory;}
+			a:active {color:mintcream;}
+
+            #box{
+                float: left;
+                position: absolute;
+                background-color:green;
+                font-size: 125%;
+            }
+            p{
+                font-size:150%;
+            }
+		</style>
+
+        <script>
+            function box1()
+            {
+                var p = document.getElementById("box");
+                var left = event.clientX;
+                var top = event.clientY;
+
+                
+                p.style.left = left + "px";
+                p.style.top = top + "px";
+
+                p.style.border = "4px solid white";
+                document.getElementById("box").innerHTML = "EMU";
+            }
+
+            function box2()
+            {
+                var p = document.getElementById("box");
+                p.style.border = "";
+                document.getElementById("box").innerHTML = "";
+            }
+        </script>
+	</head>
+	
+	<body>
+        <p id = "box"></p>
+		<h1>EMU Office List</h1>
+		<h2>Below is a table with some of the offices here at EMU</h2>
+		
+		<hr>
+		<!--inline styling used for alternating background colors-->
+		<!--target="_blank" is used on every link to open in a new window-->
+		<table>
+			<tr style="background-color:seagreen">
+				<th>Office Name</th>
+				<th>Location</th>
+				<th>Phone Number</th>
+			</tr>
+			<tr>
+				<td><a href="https://www.emich.edu/honors/"target="_blank">Honors College</a></td>
+				<td>511 W. Forest, Ypsilanti, MI 48197</td>
+				<td>734.487.0341</td>
+			</tr>
+			<tr style="background-color:darkgreen">
+				<td><a href="https://www.emich.edu/computer-science/index.php"target="_blank">Computer Science Department</a></td>
+				<td>511 Pray-Harrold Ypsilanti, Michigan 48197</td>
+				<td>734.487.1063</td>
+			</tr>
+			<tr>
+				<td><a href="https://www.emich.edu/cet/engineering/index.php"target="_blank">School of Engineering</a></td>
+				<td>111 Sill Hall, Ypsilanti, MI 48197</td>
+				<td>734.487.2040</td>
+			</tr>
+			<tr style="background-color:darkgreen">
+				<td><a href="https://www.emich.edu/chemistry/"target="_blank">Chemistry Department</a></td>
+				<td>541 Mark Jefferson Science Complex, Ypsilanti, MI 48197</td>
+				<td>734.487.0106</td>
+			</tr>
+			<tr>
+				<td><a href="https://www.emich.edu/study-abroad/"target="_blank">Study Abroad</a></td>
+				<td>242 Student Center, Ypsilanti, MI 48197</td>
+				<td>734.487.2424</td>
+			</tr>
+		</table>
+    </body>
+</html>

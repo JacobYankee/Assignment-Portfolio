@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<!--Jacob Yankee
+COSC 436
+Maniccam
+Homework 1-->
+<html lang = "en">
+    <head>
+        <title>Jacob Yankee Unshuffle Sort</title>
+		
+		<meta name="author" content = "Jacob Yankee">
+		<meta name="keywords" content="computer science unshuffle sort java eastern michigan university">
+		
+		<style>
+		body{
+			background-color:antiquewhite;
+			}
+		h1{ 
+			text-align:center;
+			}
+		p{
+			width:700px;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<h1>Unshuffle Sort</h1>
+		<hr>
+		<p>Unshuffle Sort is a distribution sorting algorithm with two phases. In phase one, the inputs are distributed among doubly-ended queues keeping the items in each queue ordered and creating a new queue when there is no place on an existing queue. The second phase is an ideal merge in which the item to be removed is determined by keeping the queues in a priority queue.</p>
+		
+		<p>Below is an implementation of such an algorithm.</p>
+		<pre>
+			<code>
+import java.util.*;
+
+public class UnshuffleSort 
+{
+    public static int[] unshufflesort(int[] arr) 
+    {
+        int n = arr.length;
+        
+        //Determine maximum amount of queues
+        int maxQueueIndex = 0;
+        for (int i = 0; i &lt; n; i++) 
+        {
+            maxQueueIndex = Math.max(maxQueueIndex, i - Arrays.binarySearch(arr, 0, i, arr[i]));
+        }
+        
+        //Phase I- Distribution phase
+        Deque&lt;Integer&gt;[] queues = new Deque[maxQueueIndex + 1];
+        for (int i = 0; i &lt;= maxQueueIndex; i++) 
+        {
+            queues[i] = new LinkedList&lt;&gt;();
+        }
+        for (int i = 0; i &lt; n; i++) 
+        {
+            int queueIndex = Math.min(i - Arrays.binarySearch(arr, 0, i, arr[i]), maxQueueIndex);
+            insertIntoQueue(queues[queueIndex], arr[i]);
+        }
+        
+        //Phase II- Merge Phase
+        PriorityQueue&lt;QueueEntry&gt; pq = new PriorityQueue&lt;&gt;();
+        for (int i = 0; i &lt;= maxQueueIndex; i++) 
+        {
+            if (!queues[i].isEmpty()) 
+            {
+                pq.offer(new QueueEntry(i, queues[i].remove()));
+            }
+        }
+        int[] result = new int[n];
+        int pos = 0;
+        while (!pq.isEmpty()) 
+        {
+            QueueEntry entry = pq.poll();
+            result[pos++] = entry.value;
+            int queueIndex = entry.queueIndex;
+            if (!queues[queueIndex].isEmpty()) 
+            {
+                pq.offer(new QueueEntry(queueIndex, queues[queueIndex].remove()));
+            }
+        }
+        return result;
+    }
+
+    //helper method used to insert element into queue while maintaining sorted order
+    private static void insertIntoQueue(Deque&lt;Integer&gt; queue, int item) 
+    {
+        while (!queue.isEmpty() && item &lt; queue.peekLast()) 
+        {
+            queue.removeLast();
+        }
+        queue.addLast(item);
+    }
+
+    //nested class used to represent an entry in priority queue
+    private static class QueueEntry implements Comparable&lt;QueueEntry&gt; 
+    {
+        int queueIndex;
+        int value;
+
+        QueueEntry(int queueIndex, int value) 
+        {
+            this.queueIndex = queueIndex;
+            this.value = value;
+        }
+
+        public int compareTo(QueueEntry other) 
+        {
+            return Integer.compare(value, other.value);
+        }
+    }
+
+    public static void main(String[] args) 
+    {
+        int[] arr = {4, 2, 9, 1, 5, 6};
+        int[] sortedArr = unshufflesort(arr);
+        System.out.println(Arrays.toString(sortedArr));
+        
+        int[] arr1 = {6, 3, 1, 5, 8, 3, 9, 4};
+        int[] sortedArr1 = unshufflesort(arr1);
+        System.out.println(Arrays.toString(sortedArr1));
+        
+        int[] arr2 = {4, 2, 9, 1, 5, 6, 8, 9, -4};
+        int[] sortedArr2 = unshufflesort(arr2);
+        System.out.println(Arrays.toString(sortedArr2));
+    }
+}
+			</code>
+		</pre>
+	</body>
+</html>

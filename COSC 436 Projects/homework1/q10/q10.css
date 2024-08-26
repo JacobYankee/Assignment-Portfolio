@@ -1,0 +1,50 @@
+/*Style sheet for question 10 stylized laptop reviews
+Jacob Yankee
+COSC 436
+Maniccam
+Homework 1*/
+img{
+	width:450px;
+	height:300px;
+	float:left;
+	opacity:0.5;
+	transition:opacity 2s;
+	}
+img:hover{opacity:1;}
+p{
+	width:900px;
+	height:300px;
+	font-size:105%;
+	}
+hr{
+	height:3px;
+	border-width:0;
+	color:black;
+	background-color:darkcyan;
+	}
+body{
+	font-family:Trebuchet MS, sans-serif;
+	background-color:lightgray;
+	color:midnightblue;
+	}
+h3{
+	text-decoration:underline;
+	}
+.laptops{
+	border-style:solid;
+	border-width:5px;
+	border-color:deepskyblue;
+	/*changing display to block is needed in order to center the image*/
+	display:block;
+	margin-top:30px;
+	margin-bottom:30px;
+	/*left and right margins must be set to auto in order to center the image*/
+	margin-left:auto;
+	margin-right:auto;
+	/*width most be 50% in order to center the image*/
+	width:50%;
+	/*text align must be at center to center the image*/
+	text-align:center;
+	background-color:aliceblue;
+	padding:20px;
+	}

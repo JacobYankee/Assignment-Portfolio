@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<!--Jacob Yankee
+COSC 436
+Maniccam
+Homework 2-->
+<html lang="en">
+    <head>
+        <title>Simple Square Game</title>
+
+        <style>
+            body{
+                text-align:center;
+                font-family: Arial, Helvetica, sans-serif;
+                background-color: burlywood;
+            }
+            #playfield{
+                width: 400px;
+                height: 400px;
+                background-color:lightgray;
+                margin-left:auto;
+                margin-right:auto;
+                margin-top:auto;
+            }
+            #red{
+                text-align:center;
+                font-size: 200%;
+                width: 40px;
+                height: 40px;
+                position:absolute;
+                margin-left:0px;
+                margin-top:0px;
+                color:white;
+            }
+            #green{
+                text-align:center;
+                font-size:200%;
+                width:40px;
+                height: 40px;
+                position:absolute;
+                margin-left:360px;
+                margin-top:360px;
+                color:white;
+                
+            }
+            button{
+                text-align:center;
+                width:45px;
+            }
+
+            #win{
+                color:snow;
+                background-color: forestgreen;
+                font-size: 110%;
+                width: 7%;
+                margin-left:auto;
+                margin-right:auto;
+            }
+        </style>
+
+        <script>
+            //declare red X and Y outside function
+            var redX;
+            var redY;
+            //declare green X and Y outside the function. Professor says to declare them in the function
+            //but I am declaring them outside for my win condition function
+            var greenX;
+            var greenY;
+
+            //gamestate variable declared outside the function to be called in the other functions
+            var gameState = false;
+            //draws the player and enables movement
+            function startGame()
+            {
+                gameState = true;
+                document.getElementById("red").innerHTML = "R";
+                document.getElementById("red").style.backgroundColor = "red";
+                document.getElementById("green").innerHTML = "G";
+                document.getElementById("green").style.backgroundColor = "green";
+            }
+            //player controllers
+            function moveRight()
+            {
+                var p = document.getElementById("red");
+                //prevents the player from moving if the game isn't started
+                if(gameState == false)
+                {
+                    return;
+                }
+                //prevents red from going out of bounds
+                if (redX == 360)
+                {
+                    return;
+                }
+                //if redX is null, the first input will not move red
+                if (redX == null)
+                {
+                p.style.marginLeft = 40 + "px";
+                }
+                else
+                {
+                    p.style.marginLeft = redX + 40 + "px";
+                }
+                redX = p.style.marginLeft;
+                redX = redX.toString();
+                redX = redX.replace("px", "");
+                redX = Number(redX);
+                console.log("redX: "+redX);
+            }
+            function moveLeft()
+            {
+                var p = document.getElementById("red");
+                //prevents the player from moving if the game isn't started
+                if(gameState == false)
+                {
+                    return;
+                }
+                //because red will always start in the top left corner, we need two conditions to prevent it from going out of bounds
+                if (redX == 0 || redX == null)
+                {
+                    return;
+                }
+                else
+                {
+                    p.style.marginLeft = redX - 40 + "px";
+                }
+                redX = p.style.marginLeft;
+                redX = redX.toString();
+                redX = redX.replace("px", "");
+                redX = Number(redX);
+                console.log("redX: "+redX);
+            }
+            function moveDown()
+            {
+                var p = document.getElementById("red");
+                //prevents the player from moving if the game isn't started
+                if(gameState == false)
+                {
+                    return;
+                }
+                //prevents red from going out of bounds
+                if (redY == 360)
+                {
+                    return;
+                }
+                //if redY is null, the first input will not move red
+                if (redY == null)
+                {
+                p.style.marginTop = 40 + "px";
+                }
+                else
+                {
+                    p.style.marginTop = redY + 40 + "px";
+                }
+                redY = p.style.marginTop;
+                redY = redY.toString();
+                redY = redY.replace("px", "");
+                redY = Number(redY);
+                console.log("redY: "+redY);
+            }
+            function moveUp()
+            {
+                var p = document.getElementById("red");
+                //prevents the player from moving if the game isn't started
+                if(gameState == false)
+                {
+                    return;
+                }
+                //because red will always start in the top left corner, we need two conditions to prevent it from going out of bounds
+                if (redY == 0 || redY == null)
+                {
+                    return;
+                }
+                else
+                {
+                    p.style.marginTop = redY - 40 + "px";
+                }
+                redY = p.style.marginTop;
+                redY = redY.toString();
+                redY = redY.replace("px", "");
+                redY = Number(redY);
+                console.log("redY: "+redY);
+            }
+
+            //green movement
+            function greenMove()
+            {
+                //prevents green from moving if the game isn't started
+                if(gameState == false)
+                {
+                    return;
+                }
+                //use a random number to determine when green moves
+                var mover = Math.floor(Math.random()*3)+1;
+                console.log(mover);
+                //33% chance to move
+                if (mover % 2 == 0)
+                {
+                //Set greenX and greenY equal to random values between 0 and 360
+                //set to values divisible by 40 (0, 40, 80, 120, 160, 200, 240, 280, 320, 360) if they do not land exactly on those numbers
+                    greenX = Math.floor(361 * Math.random());
+                    greenY = Math.floor(361 * Math.random());
+                    //Math.ciel is not in the notes, so we will create a very basic implementation of it using conditionals rounding up
+                    //X values
+                    if(0 < greenX && greenX <= 20)
+                        greenX = 0;
+                    if(20 < greenX && greenX < 40)
+                        greenX = 40;
+                    if(40 < greenX && greenX <= 60)
+                        greenX = 40;
+                    if(60 < greenX && greenX < 80)
+                        greenX = 80;
+                    if(80 < greenX && greenX < 100)
+                        greenX = 80;
+                    if(100 < greenX && greenX <120)
+                        greenX = 120;
+                    if(120 < greenX && greenX <= 140)
+                        greenX = 120;
+                    if(140 < greenX && greenX < 160)
+                        greenX = 160;
+                    if(160 < greenX && greenX <= 180)
+                        greenX = 160;
+                    if(180 < greenX && greenX < 200)
+                        greenX = 200;
+                    if(200 < greenX && greenX <= 220)
+                        greenX = 200;
+                    if(220 < greenX && greenX < 240)
+                        greenX = 240;
+                    if(240 < greenX && greenX <= 260)
+                        greenX = 240;
+                    if(260 < greenX && greenX < 280)
+                        greenX = 280;
+                    if(280 < greenX && greenX <= 300)
+                        greenX = 280;
+                    if(300 < greenX && greenX < 320)
+                        greenX = 320;
+                    if(320 < greenX && greenX <= 340)
+                        greenX = 320;
+                    if(340 < greenX && greenX < 360)
+                        greenX = 360;
+                    //Y values
+                    if(0 < greenY && greenY <= 20)
+                        greenY = 0;
+                    if(20 < greenY && greenY < 40)
+                        greenY = 40;
+                    if(40 < greenY && greenY <= 60)
+                        greenY = 40;
+                    if(60 < greenY && greenY < 80)
+                        greenY = 80;
+                    if(80 < greenY && greenY <= 100)
+                        greenY = 80;
+                    if(100 < greenY && greenY < 120)
+                        greenY = 120;
+                    if(120 < greenY && greenY <= 140)
+                        greenY = 120;
+                    if(140 < greenY && greenY < 160)
+                        greenY = 160;
+                    if(160 < greenY && greenY <= 180)
+                        greenY = 160;
+                    if(180 < greenY && greenY < 200)
+                        greenY = 200;
+                    if(200 < greenY && greenY <= 220)
+                        greenY = 200;
+                    if(220 < greenY && greenY < 240)
+                        greenY = 240;
+                    if(240 < greenY && greenY <= 260)
+                        greenY = 240;
+                    if(260 < greenY && greenY < 280)
+                        greenY = 280;
+                    if(280 < greenY && greenY <= 300)
+                        greenY = 280;
+                    if(300 < greenY && greenY < 320)
+                        greenY = 320;
+                    if(320 < greenY && greenY <= 340)
+                        greenY = 320;
+                    if(340 < greenY && greenY < 360)
+                        greenY = 360;
+
+                    document.getElementById("green").style.marginLeft = greenX + "px";
+                    document.getElementById("green").style.marginTop = greenY + "px";
+                }
+                console.log("greenX: "+ greenX);
+                console.log("greenY: "+ greenY);
+            }
+            //game is won when red overlaps green
+            function gameWin()
+            {
+                if(redX == greenX && redY == greenY)
+                {
+                    document.getElementById("win").innerHTML = "YOU WIN!!!";
+                    document.getElementById("win").style.border = "2px solid lawngreen";
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <h1>Simple Square Game</h1>
+        <h2>Control the red square and chase down the green square. Use the buttons below the window to play.</h2>
+        <h3>Do note that the game does not end after winning.</h3>
+        <div id = "playfield">
+            <p id = "green"></p>
+            <p id = "red"></p>
+            
+        </div>
+        <br>
+        <button onclick = "moveUp(), greenMove(), gameWin()">Up</button>
+        <br>
+        <button onclick = "moveLeft(), greenMove(), gameWin()">Left</button>
+        <button onclick = "startGame()">Start</button>
+        <button onclick = "moveRight(), greenMove(), gameWin()">Right</button>
+        <br>
+        <button onclick = "moveDown(), greenMove(), gameWin()">Down</button>
+        <p id = "win"></p>
+    </body>
+</html>

@@ -1,0 +1,26 @@
+===Database h4q1
+
+== Table structure for table orders
+
+|------
+|Column|Type|Null|Default
+|------
+|//**autoID**//|int(11)|No|
+|customer|varchar(30)|No|
+|payment|varchar(20)|No|
+|locale|varchar(100)|No|
+|burger|tinyint(1)|No|
+|pizza|tinyint(1)|No|
+|soda|tinyint(1)|No|
+== Dumping data for table orders
+
+|479|jacob|43243|3333 Lane|0|1|0
+== Table structure for table passwords
+
+|------
+|Column|Type|Null|Default
+|------
+|//**pwd**//|varchar(25)|No|
+== Dumping data for table passwords
+
+|password7

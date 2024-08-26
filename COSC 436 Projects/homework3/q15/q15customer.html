@@ -1,0 +1,36 @@
+<!--Jacob Yankee
+COSC 436
+Maniccam
+Homework 3-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Restaruant Order Form</title>
+    <link rel = "stylesheet" href = "q15.css">
+</head>
+<body>
+    <h1>Restaruant Order Form</h1>
+    <!--form to get values for order-->
+    <form method = "post" action = "http://localhost/q15customer.php">
+        <label>Pizza:</label>
+        <input type = "checkbox" name = "pizza">$7.99 &nbsp;</input>
+        <label>Burger:</label>
+        <input type = "checkbox" name = "burger">$5.99 &nbsp;</input>
+        <label>Soda:</label>
+        <input type = "checkbox" name = "soda">$0.99 &nbsp;</input>
+        <br>
+        <table>
+        <tr><td><label>Customer Name</label></td>
+        <td><input type = "text" name = "name" maxlength="30"></td></tr>
+        <tr><td><label>Address</label></td>
+        <td><input type = "text" name = "address" maxlength="100"></td></tr>
+        <tr><td><label>Credit Card</label></td>
+        <td><input type = "text" name = "card" maxlength="20"></td></tr>
+        </table>
+        <br>
+        <input type = "submit">
+        <input type = "reset">
+    </form>
+</body>
+</html>

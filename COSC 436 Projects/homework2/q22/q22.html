@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<!--Jacob Yankee
+COSC 436
+Maniccam
+Homework 2-->
+<html lang="en">
+	<head>
+		<title>Personalized Portal for Earl</title>
+		<meta name="author" content = "Jacob Yankee">
+		<meta name="keywords" content="Earl quote shopping education entertainment social media">
+		<!--Positioning choices were made on a 1920x1080 screen and may look incorrect on different resolutions and window-->
+		<style>
+		
+		body{
+			text-align:center;
+			font-family:Arial, sans-serif;
+			background-color:lightcyan;
+			}
+		h1{
+			background-color:darkturquoise;
+			}
+			/*a border is used to make sure every table is the same set distance away from the photo*/
+		img{
+			width:500px;
+			height:500px;
+			border-style:solid;
+			border-color:cornflowerblue;
+			border-width:20px;
+			}
+		th{
+			background-color:snow;
+			}
+		td{
+			background-color:lemonchiffon;
+			}
+		a{
+			text-decoration:none;
+			}
+		a:link {color:dodgerblue;}
+		a:visited {color:deepskyblue;}
+		a:hover {color:darkslateblue;}
+		a:active {color:darkcyan;}
+		.center{
+			width:50%;
+			margin-left:auto;
+			margin-right:auto;
+			margin-top:auto;
+			margin-bottom:auto;
+			display:block;
+			text-align:center;
+			
+			}
+		.t1{
+			margin-left:auto;
+			margin-right:auto;
+			border: 1px solid black;
+			border-collapse:collapse;
+			font-size:110%
+			}
+		.tup{
+			position:relative;
+			bottom:0px;
+			left:10px;
+			}
+		.tdown{
+			position:relative;
+			bottom:4px;
+			left:10px;
+			}
+		.tleft{
+			float:left;
+			position:relative;
+			top:200px;
+			left:101px;
+			}
+		.tright{
+			float:right;
+			position:relative;
+			top:200px;
+			right:100px;
+			}
+		.quote{
+			width:250px;
+			float:left;
+			border-style:solid;
+			border-color:mediumslateblue;
+			border-width:4px;
+			background-color:powderblue;
+			position:fixed;
+			left:0;
+			bottom:400px;
+			}
+        .time{
+            float: right;
+            border: solid 4px mediumslateblue;
+            background-color: powderblue;
+            position:fixed;
+            top:58px;
+            right:0;
+            }
+		</style>
+
+        <script>
+            function loadQuote()
+            {
+                var p = document.getElementById("text")
+                var ran = Math.floor(Math.random() * 10);
+                //random quote is selected based on random number generated similar to the links in question 20. Most quotes were chosen with little to no thought or reason
+                if (ran == "0")
+                {
+                    p.innerHTML = "Personally I think the internet should've been a resource only available to the government and specific research universities. -anonymous";
+                }
+                if (ran == "1")
+                {
+                    p.innerHTML = "I am the one who knocks. -Walter White";
+                }
+                if (ran == "2")
+                {
+                    p.innerHTML = "I would like to extend my best wishes to all, even the haters and losers, on this special date, September 11th. -Donald Trump";
+                }
+                if (ran == "3")
+                {
+                    p.innerHTML = "The industrial revolution and its consequences have been a disaster for the human race. -Ted Kaczynski";
+                }
+                if (ran == "4")
+                {
+                    p.innerHTML = "Free will is a myth. Religion is a joke. We are all pawns, controlled by something greater: Memes. The DNA of the soul. They shape our will. They are the culture. They are everything we pass on. -Hideo Kojima";
+                }
+                if (ran == "5")
+                {
+                    p.innerHTML = "Thank you so much for a-playing my game! -Charles Martinet";
+                }
+                if (ran == "6")
+                {
+                    p.innerHTML = "I am the Alpha and the Omega, the Beginning and the End, the First and the Last. -Revelation 22:13";
+                }
+                if (ran == "7")
+                {
+                    p.innerHTML = "If I say what I think I'll be suspended six months. -Mikel Arteta";
+                }
+                if (ran == "8")
+                {
+                    p.innerHTML = "When do you think people die? When they're shot through the heart with a pistol? ...No. When they have an uncurable disease? ...No. When they drink soup made from a poisonous mushroom? No! When they are forgotten! Even if I die, my dream will come true. The hearts of the people will be cured..! -Eiichiro Oda";
+                }
+                if (ran == "9")
+                {
+                    p.innerHTML = "Quotes are overrated. -Earl";
+                }
+            }
+
+            function getTime()
+                {
+                    
+                    var p = document.getElementById("clock");
+                    //declare values so clock appears as soon as page is loaded
+                    var time = new Date();
+                    var h = time.getHours();
+                    var m = time.getMinutes();
+                    var s = time.getSeconds();
+					h = zeroes(h);
+                    m = zeroes(m);
+                    s = zeroes(s);
+                    p.innerHTML = h + ":" + m + ":" + s +" EST";
+                    var count = 0;
+                    //interval uses 10000 miliseconds = 10 seconds
+                    var animationId = setInterval(animate, 10000)
+                    function animate()
+                    {
+                        //declare values again to update clock every ten seconds
+                        var time = new Date();
+                        var h = time.getHours();
+                        var m = time.getMinutes();
+                        var s = time.getSeconds();
+						h = zeroes(h);
+                        m = zeroes(m);
+                        s = zeroes(s);
+                        p.innerHTML = h + ":" + m + ":" + s + " EST";
+                        count = count + 1;
+                    }
+                }
+
+                //function to add zeroes to time 
+                function zeroes(i)
+                {
+                    if (i < 10)
+                    i = "0"+ i;
+                return i;
+                }
+        </script>
+	</head>
+	<body onload = "getTime(), loadQuote()">
+		<h1>Earl's Personalized Web Portal</h1>
+        <div class="time">
+            <h3>Current Time:&nbsp;</h3>
+            <p id = "clock"></p>
+        </div>
+		<div class="quote">
+		<h3>Earl's Quote Corner</h3>
+        <h4>This instance's quote:</h4>
+		<p id = "text"></p>
+		</div>
+		<br>
+		<div class="center">
+			<div class="tup">
+				<table class="t1">
+					<th>Shopping</th>
+						<tr>
+							<td><a href="https://amazon.com"target="_blank">Amazon</a></td>
+						</tr>
+						<tr>
+							<td><a href="https://ebay.com"target="_blank">Ebay</a></td>
+						</tr>
+						<tr>
+							<td><a href="https://woot.com"target="_blank">Woot!</a></td>
+						</tr>
+						<tr>
+							<td><a href="https://newegg.com"target="_blank">Newegg</a></td>
+						</tr>
+				</table>
+			</div>
+			<div class="tleft">
+				<table class="t1">
+					<th>Entertainment</th>
+						<tr>
+							<td><a href="https://netflix.com"target="_blank">Netflix</a></td>
+						</tr>
+						<tr>
+							<td><a href="https://hulu.com"target="_blank">Hulu</a></td>
+						</tr>
+						<tr>
+							<td><a href="https://youtube.com"target="_blank">YouTube</a></td>
+						</tr>
+						<tr>
+							<td><a href="https://vimeo.com"target="_blank">Vimeo</a></td>
+						</tr>
+				</table>
+			</div>
+		<img src="https://st.depositphotos.com/1144472/2003/i/950/depositphotos_20030237-stock-photo-cheerful-young-man-over-white.jpg">
+			<div class="tright">
+				<table class="t1">
+					<th>Education</th>
+						<tr>
+							<td><a href="https://emich.edu"target="_blank">EMU</a></td>
+						</tr>
+						<tr>
+							<td><a href="https://umich.edu"target="_blank">UofM</a></td>
+						</tr>
+						<tr>
+							<td><a href="https://wayne.edu"target="_blank">WSU</a></td>
+						</tr>
+						<tr>
+							<td><a href="https://mtu.edu"target="_blank">MTU</a></td>
+						</tr>
+				</table>
+			</div>
+		<div class="tdown">
+			<table class="t1">
+				<th>Social Media</th>
+				<tr>
+					<td><a href="https://facebook.com"target="_blank">Facebook</a></td>
+				</tr>
+				<tr>
+					<td><a href="https://twitter.com"target="_blank">Twitter</a></td>
+				</tr>
+				<tr>
+					<td><a href="https://instagram.com"target="_blank">Instagram</a></td>
+				</tr>
+				<tr>
+					<td><a href="https://reddit.com"target="_blank">Reddit</a></td>
+				</tr>
+			</table>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,27 @@
+===Database h3q13
+
+== Table structure for table message_board
+
+|------
+|Column|Type|Null|Default
+|------
+|message|varchar(100)|No|
+|date|varchar(25)|No|
+== Dumping data for table message_board
+
+|test|11/07/2023 10:42:55p
+|Okay so youre supposed to use a varchar type for date instead of the date type|11/07/2023 10:43:50pm
+|Also single quotes seem to break the code which makes sense to me|11/07/2023 10:44:23pm
+|sending another message for background color check|11/07/2023 10:45:06pm
+|and heres another message for more style checks|11/07/2023 10:45:53pm
+|Guess I forgot to save|11/07/2023 10:46:05pm
+|I wrote my style changes in q13.php not q13update.php|11/07/2023 10:46:38pm
+|I think this is good enough but I could totally do more with it|11/07/2023 10:47:07pm
+|hello everyone|11/16/2023 12:46:53am
+|test|11/16/2023 12:49:42am
+|this is a message I love chatting here|11/16/2023 01:12:24am
+|gugugugugu|11/16/2023 01:13:00am
+|gugugugugu|11/16/2023 01:13:07am
+|test again|11/16/2023 01:15:09am
+|coding is fun|11/16/2023 10:45:08pm
+|coding is fun|11/16/2023 10:45:17pm

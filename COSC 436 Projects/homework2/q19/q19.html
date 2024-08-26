@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<!--Jacob Yankee
+COSC 436
+Maniccam
+Homework 2-->
+<html lang="en">
+	<head>
+		<title>Javascript Modified Laptop Reviews</title>
+		<meta name="author" content = "Jacob Yankee">
+		<meta name="keywords" content="laptops computers reviews asus rog intel nvidia lenovo thinkpad mac apple acer amd">
+		<style>
+		/*every image has the same size, results may look odd*/
+		img{
+			width:450px;
+			height:300px;
+			}
+		p{
+			width:500px;
+			font-size:105%;
+			}
+		body{
+			font-family:Trebuchet MS, sans-serif;
+			background-color:lightgray;
+			}
+		h3{
+			text-decoration:underline;
+			}
+		figure{
+			border: 6px solid skyblue;
+			width:27%;
+			background-color:azure;
+			color:black;
+			}
+		hr{
+			height:4px;
+				border-width:0;
+				color:black;
+				background-color:dodgerblue;
+			}
+		figcaption{
+			text-decoration:underline;
+			}
+		</style>
+
+        <script>
+            //Image changes
+            function bord1()
+            {
+                var p = document.getElementById("im1");
+                p.style.border = " 4px solid dodgerblue";
+            }
+
+            function bord2()
+            {
+                var p = document.getElementById("im1");
+                p.style.border = "";
+            }
+            function bord3()
+            {
+                var p = document.getElementById("im2");
+                p.style.border = " 4px solid dodgerblue";
+            }
+
+            function bord4()
+            {
+                var p = document.getElementById("im2");
+                p.style.border = "";
+            }
+            function bord5()
+            {
+                var p = document.getElementById("im3");
+                p.style.border = " 4px solid dodgerblue";
+            }
+
+            function bord6()
+            {
+                var p = document.getElementById("im3");
+                p.style.border = "";
+            }
+            function bord7()
+            {
+                var p = document.getElementById("im4");
+                p.style.border = " 4px solid dodgerblue";
+            }
+
+            function bord8()
+            {
+                var p = document.getElementById("im4");
+                p.style.border = "";
+            }
+
+            //Paragraph changes
+            function pChange1()
+            {
+                var p = document.getElementById("para1");
+                p.style.backgroundColor = "lightcyan";
+                p.style.fontFamily = "verdana, sans-serif";
+            }
+            function pChange2()
+            {
+                var p = document.getElementById("para1");
+                p.style.backgroundColor = "";
+                p.style.fontFamily = "";
+            }
+            function pChange3()
+            {
+                var p = document.getElementById("para2");
+                p.style.backgroundColor = "lightcyan";
+                p.style.fontFamily = "verdana, sans-serif";
+            }
+            function pChange4()
+            {
+                var p = document.getElementById("para2");
+                p.style.backgroundColor = "";
+                p.style.fontFamily = "";
+            }
+            function pChange5()
+            {
+                var p = document.getElementById("para3");
+                p.style.backgroundColor = "lightcyan";
+                p.style.fontFamily = "verdana, sans-serif";
+            }
+            function pChange6()
+            {
+                var p = document.getElementById("para3");
+                p.style.backgroundColor = "";
+                p.style.fontFamily = "";
+            }
+            function pChange7()
+            {
+                var p = document.getElementById("para4");
+                p.style.backgroundColor = "lightcyan";
+                p.style.fontFamily = "verdana, sans-serif";
+            }
+            function pChange8()
+            {
+                var p = document.getElementById("para4");
+                p.style.backgroundColor = "";
+                p.style.fontFamily = "";
+            }
+
+            //Heading changes
+            function hChange1()
+            {
+                var p = document.getElementById("head1");
+                p.style.fontSize = "130%";
+            }
+            function hChange2()
+            {
+                var p = document.getElementById("head1");
+                p.style.fontSize = "";
+            }
+            function hChange3()
+            {
+                var p = document.getElementById("head2");
+                p.style.fontSize = "130%";
+            }
+            function hChange4()
+            {
+                var p = document.getElementById("head2");
+                p.style.fontSize = "";
+            }
+            function hChange5()
+            {
+                var p = document.getElementById("head3");
+                p.style.fontSize = "130%";
+            }
+            function hChange6()
+            {
+                var p = document.getElementById("head3");
+                p.style.fontSize = "";
+            }
+            function hChange7()
+            {
+                var p = document.getElementById("head4");
+                p.style.fontSize = "130%";
+            }
+            function hChange8()
+            {
+                var p = document.getElementById("head4");
+                p.style.fontSize = "";
+            }
+        </script>
+	</head>
+	
+	<body>
+		<h1>Laptop Reviews</h1>
+		<h2>Check out some of these recommended laptops</h2>
+		<hr>
+		<h3 id = "head1" onmouseover = "hChange1()" onmouseout = "hChange2()">ASUS ROG Zephyrus S GX701</h3>
+		<figure>
+			<a href="https://www.amazon.com/Zephyrus-GeForce-i7-9750H-Processor-GX701GX-XH76/dp/B07X21QNKX/ref=d_pd_sbs_sccl_4_1/133-0690516-7604526?pd_rd_w=QcmiA&content-id=amzn1.sym.83180963-0377-46ea-9aa4-1ece655ef63e&pf_rd_p=83180963-0377-46ea-9aa4-1ece655ef63e&pf_rd_r=XPJ8BJHQA49BF15JXVNS&pd_rd_wg=msHvO&pd_rd_r=cf0e1b9e-0c0b-4d7f-831d-7eb24cc97323&pd_rd_i=B07X21QNKX&psc=1"target="_blank" ><img src="https://m.media-amazon.com/images/I/616PZvCGI7L._AC_SX679_.jpg" id = "im1" onmouseover = "bord1()" onmouseout = "bord2()"></a>
+			<figcaption>Click the image to see an Amazon listing</figcaption>
+			<p id = "para1" onmouseover = "pChange1()" onmouseout = "pChange2()">A pretty good laptop for top of the line four years ago, and what I use at home. This thing is incredibly light, being too thin to have a stadnard ethernet port, which makes traveling with it very easy. Despite that, the GX701 still manages to pack a punch with its NVIDIA GeForce RTX 2080 GPU, Intel Core i7-9750H CPU, and 16 gigabytes of DDR4 RAM. On top of all of that, this laptop manages to come with a 17.3 inch 1080p screen with a 144 hertz refresh rate. Definitely worth its hefty asking price even with the "outdated" specs.</p>	
+        </figure>
+		<hr>
+		<h3 id = "head2" onmouseover = "hChange3()" onmouseout = "hChange4()">Lenovo ThinkPad T480s</h3>
+		<figure>
+			<a href ="https://www.amazon.com/Lenovo-T480s-1920x1080-Fingerprint-Supported/dp/B092JP4MXD/ref=sr_1_3?crid=R054P59IWP6Z&keywords=thinkpad%2Blaptop&qid=1695587042&s=electronics&sprefix=think%2Celectronics%2C190&sr=1-3&th=1"target="_blank"><img src="https://m.media-amazon.com/images/I/61Dj1jl6fWL._AC_SX466_.jpg" id = "im2" onmouseover = "bord3()" onmouseout = "bord4()"></a>
+			<figcaption>Click the image to see an Amazon listing</figcaption>
+			<p id = "para2" onmouseover = "pChange3()" onmouseout = "pChange4()">A standard ThinkPad work laptop that comes with everything one would expect from one such as a fingerprint reader and the little red nub in the middle of the keyboard. Aside from that, this specific ThinkPad comes with a 13.3 inch 1080p display, 24 gigabytes of RAM, a 512 gigabyte SSD, and a 4.20 gigahertz Intel Core i7-8650U CPU. However this one is refurbished, so it may not be in peak condition.</p>
+		</figure>
+		<hr>
+		<h3 id = "head3" onmouseover = "hChange5()" onmouseout = "hChange6()">Apple MacBook Pro</h3>
+		<figure>
+			<a href="https://www.amazon.com/Apple-MacBook-Laptop-10%E2%80%91core-16%E2%80%91core/dp/B0BSHDVBXZ/ref=sr_1_4?crid=11A2W7BVI24SJ&keywords=macbook+pro+2023&qid=1695588335&s=electronics&sprefix=mac%2Celectronics%2C95&sr=1-4"target="_blank"><img src="https://m.media-amazon.com/images/I/61lYIKPieDL._AC_SX522_.jpg" id = "im3" onmouseover = "bord5()" onmouseout = "bord6()"></a>
+			<figcaption>Click the image to see an Amazon listing</figcaption>
+			<p id = "para3" onmouseover = "pChange5()" onmouseout = "pChange6()">The newest MacBook Pro model, a solid choice for those that aren't too fond of windows. Featuring an Apple M2 Pro chip with a 10-core CPU and a 16-core GPU, this one can definitely handle anything. Not to mention its 16 gigabytes of unified memory, 512 gigabytes of SSD storage, and a battery life of eighteen hours, this is certainly worth the money.</p>
+		</figure>
+		<hr>
+		<h3 id = "head4" onmouseover = "hChange7()" onmouseout = "hChange8()">Acer Aspire 3</h3>
+		<figure>
+			<a href="https://www.amazon.com/A315-24P-R7VH-Display-Quad-Core-Processor-Graphics/dp/B0BS4BP8FB?ref_=Oct_d_oup_d_565108_0&pd_rd_w=IwdwQ&content-id=amzn1.sym.4d915fa8-ca05-4073-b385-a93e1e1dd22d&pf_rd_p=4d915fa8-ca05-4073-b385-a93e1e1dd22d&pf_rd_r=YF8N7GCG2X7WEA3GC762&pd_rd_wg=tvK8N&pd_rd_r=2d54be90-2d46-48a8-896c-50212042d5cd&pd_rd_i=B0BS4BP8FB&th=1"target="_blank"><img src="https://m.media-amazon.com/images/I/71+1lOl1Y1L._AC_SX679_.jpg" id = "im4" onmouseover = "bord7()" onmouseout = "bord8()"></a>
+			<figcaption>Click the image to see an Amazon listing</figcaption>
+			<p id = "para4" onmouseover = "pChange7()" onmouseout = "pChange8()">A great budget choice. Featuring an AMD Ryzen 3 7320U quad-core processor and AMD Radeon graphics as well as being incredibly thin, this can make for a great work or school laptop. It comes with 8 gigabytes of LPDDR5 RAM and a 128 gigabyte NVMe SSD, meaning it shouldn't slow down on you. The screen is a solid 15.6 inch full HD display which is suitable for most work.</p>
+		</figure>
+	</body>
+</html>

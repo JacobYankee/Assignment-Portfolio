@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<!--Jacob Yankee
+COSC 436
+Maniccam
+Homework 2-->
+<html lang="en">
+    <head>
+        <title>Modified ID and Password Generator</title>
+        <style>
+            body{
+                text-align: center;
+                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                font-size: 105%;
+                background-color: blanchedalmond;
+            }
+            hr{
+	            height:2px;
+	            border-width:0;
+	            color:black;
+	            background-color:dimgrey;
+	        }
+            input{
+                background-color:azure;
+            }
+            label{
+                position: fixed;
+                right: 670px;
+            }
+        </style>
+
+        <script>
+            function generate()
+            {
+                var t1 = document.getElementById("fname");
+                var t2 = document.getElementById("lname");
+                var t3 = document.getElementById("phone");
+
+                var fname = t1.value;
+                var lname = t2.value;
+                var phone = t3.value;
+                //check first name for errors
+                if(fname.length < 2 || fname.search(/^[a-zA-Z]+$/) !== 0)
+                {
+                    t1.style.backgroundColor = "red";
+                    document.getElementById("output").innerHTML ="";
+                }
+                //check last name for errors
+                if(lname.length < 2 || lname.search(/^[a-zA-Z]+$/) !== 0)
+                {
+                    t2.style.backgroundColor = "red";
+                    document.getElementById("output").innerHTML ="";
+                }
+                //check phone number for errors
+                if(phone.search(/^\d{3}-\d{3}-\d{4}$/) !== 0)
+                {
+                    t3.style.backgroundColor = "red";
+                    document.getElementById("output").innerHTML ="";
+                }
+                //create id and password
+                else if (fname.length > 1 && fname.search(/^[a-zA-Z]+$/) == 0 && lname.length > 1 && lname.search(/^[a-zA-Z]+$/) == 0 && phone.search(/^\d{3}-\d{3}-\d{4}$/) == 0)
+                {
+                    fname = fname.toUpperCase();
+                    lname = lname.toUpperCase();
+                    var f1 = fname.charAt(0);
+                    var f2 = fname.charAt(fname.length -1);
+                    var user = f1 + lname;
+                    let ph = phone.split("-");
+                    var l1 = lname.substring(0,3);
+                    var pass = f2 + l1+ ph[2];
+                    document.getElementById("output").innerHTML ="ID: "+ user + " Password: "+ pass;
+                }
+            }
+            //standard color for first name box
+            function color1()
+            {
+                var p = document.getElementById("fname");
+                p.style.backgroundColor = "white";
+                document.getElementById("flabel").innerHTML = "Letters (min 2, max 10)";
+
+            }
+            //hover color for first name box
+            function color2()
+            {
+                var p = document.getElementById("fname");
+                p.style.backgroundColor = "azure";
+                document.getElementById("flabel").innerHTML = "";
+            }
+            //standard color for last name box
+            function color3()
+            {
+                var p = document.getElementById("lname");
+                p.style.backgroundColor = "white";
+                document.getElementById("llabel").innerHTML = "Letters (min 2, max 10)";
+            }
+            //hover color for last name box
+            function color4()
+            {
+                var p = document.getElementById("lname");
+                p.style.backgroundColor = "azure";
+                document.getElementById("llabel").innerHTML = "";
+            }
+            //standard color for phone number box
+            function color5()
+            {
+                var p = document.getElementById("phone");
+                p.style.backgroundColor = "white";
+                document.getElementById("plabel").innerHTML = "xxx-xxx-xxxx (with dashes)";
+            }
+            //hover color for phone number box
+            function color6()
+            {
+                var p = document.getElementById("phone");
+                p.style.backgroundColor = "azure";
+                document.getElementById("plabel").innerHTML = "";
+            }
+        </script>
+    </head>
+
+    <body>
+        <h1>ID and Password Generator</h1>
+        <h2>Create a memorable ID and a super secure password</h2>
+        <hr>
+        <h3>Enter your first name, last name, and phone numbers into the boxes</h3>
+        <input type="text" maxlength="10" id = "fname" placeholder="First name" onmouseover = "color1()" onmouseout = "color2()" onchange = "generate()"></input>
+        <label id = "flabel"></label>
+        <br>
+        <input type="text" maxlength="10" id = "lname" placeholder="Last name" onmouseover = "color3()" onmouseout = "color4()" onchange = "generate()"></input>
+        <label id = "llabel"></label>
+        <br>
+        <input type="text" id = "phone" placeholder="Phone number" onmouseover = "color5()" onmouseout = "color6()" onchange = "generate()"></input>
+        <label id = "plabel"></label>
+        <br>
+        <p id = "output"> </p>
+    </body>
+</html>

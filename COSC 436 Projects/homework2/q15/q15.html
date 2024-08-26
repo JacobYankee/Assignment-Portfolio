@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!--Jacob Yankee
+COSC 436
+Maniccam
+Homework 2-->
+<html lang="en">
+    <head>
+        <title>Compound Interest Calculator</title>
+        <script>
+        //code similar to question 5
+            function interest()
+            {
+            var box1 = document.getElementById("p");
+            var box2 = document.getElementById("r");
+            var box3 = document.getElementById("n");
+
+            var p = box1.value;
+            var r = box2.value;
+            var n = box3.value;
+
+            p = Number(p);
+            r = Number(r);
+            n = Number(n);
+            var x = p * Math.pow(1 + (r/100), n);
+            document.getElementById("output").innerHTML = "Result: $"+ x;
+            }
+        </script>
+        <style>
+            body{
+                text-align:center;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                background-color:lightgoldenrodyellow;
+            }
+            hr{
+                height:2px;
+				border-width:0;
+				color:darkslategray;
+				background-color:darkslategray;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>Compound Interest Calculator</h1>
+        <hr>
+        <h4>Calcuate the compound interest with the function p(1 + r/100)^n</h4>
+        <h5>Use the text boxes to enter an Amount(p), an Interest Rate(r), and the Years(n)</h5>
+        <label>Amount:</label>
+        <input type="text" id="p"></input>
+        <label>Interest Rate:</label>
+        <input type="text" id="r"></input>
+        <label>Years:</label>
+        <input type="text" id="n"></input>
+        <br>
+        <br>
+        <button onclick="interest()"> Calculate </button>
+        <p id="output"> </p>
+
+        
+
+    </body>
+    
+</html>

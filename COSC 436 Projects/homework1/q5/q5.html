@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<!--Jacob Yankee
+COSC 436
+Maniccam
+Homework 1-->
+<html lang="en">
+	<head>
+		<title> Java Sorting Algorithms</title>
+		<meta name="author" content = "Jacob Yankee">
+		<meta name="keywords" content="computer science java sorting algorithms bubble selection insertion merge quick">
+		
+		<style>
+		/*text and background colors were chosen to look similar to a text editor such as Notepad++*/
+			table{
+				border:2px solid ivory;
+				margin-left:auto;
+				margin-right:auto;
+				font-size:125%;
+				width:50%;
+				color:lightgreen;
+				font-family:Verdana, sans-serif;
+				}
+				a:link {color:lightsalmon;}
+				a:visited {color:indianred;}
+				a:hover {color:lightcoral;}
+				a:active {color:lightpink;}
+			body{
+				background-color:dimgray;
+				}
+			h1, h2{
+				color:ghostwhite;
+				font-family:Tahoma, sans-serif;
+				}
+			code{
+				color:lemonchiffon;
+				font-size:105%;
+				}
+		</style>
+	</head>
+	
+	<body>
+		<h1 style="text-align:center">Java Sorts</h1>
+		<h2 style="text-align:center">This webpage hosts a selection of common sorting algorithms written in Java including Bubble, Selection, Insertion, Merge, and Quick sorts</h2>
+		
+		<hr>
+		<!--similar navigation table to q3-->
+		<table>
+			<tr>
+				<th colspan="5"> Click on the algorithm name to be taken there</th>
+			</tr>
+			<tr>
+				<th><a href="#id1">Bubble Sort</a></th>
+				<th><a href="#id2">Selection Sort</a></th>
+				<th><a href="#id3">Insertion Sort</a></th>
+				<th><a href="#id4">Merge Sort</a></th>
+				<th><a href="#id5">Quick Sort</a></th>
+			</tr>
+		</table>
+		
+		<hr>
+		
+		<h2 id="id1">Bubble Sort</h2>
+		<!--the pre and code tags are used to easily format the code in the proper font-->
+		<!--the &lt; and &gt; tags are used to make sure the html file is still valid and to make sure all of the text appears on the webpage-->
+		<pre>
+			<code>
+import java.io.*;
+class BubbleSort {
+	
+	static void bubbleSort(int arr[], int n)
+	{
+		int i, j, temp;
+		boolean swapped;
+		for (i = 0; i &lt; n - 1; i++) {
+			swapped = false;
+			for (j = 0; j &lt; n - i - 1; j++) {
+				if (arr[j] &gt; arr[j + 1]) {
+					
+					// Swap arr[j] and arr[j+1]
+					temp = arr[j];
+					arr[j] = arr[j + 1];
+					arr[j + 1] = temp;
+					swapped = true;
+				}
+			}
+			if (swapped == false)
+				break;
+		}
+	}
+	static void printArray(int arr[], int size)
+	{
+		int i;
+		for (i = 0; i &lt; size; i++)
+			System.out.print(arr[i] + " ");
+		System.out.println();
+	}
+	public static void main(String args[])
+	{
+		int arr[] = { 64, 34, 25, 12, 22, 11, 90 };
+		int n = arr.length;
+		bubbleSort(arr, n);
+		System.out.println("Sorted array: ");
+		printArray(arr, n);
+	}
+}
+			</code>
+		</pre>
+		
+		<hr>
+		
+		<h2 id="id2">Selection Sort</h2>
+		<pre>
+			<code>
+import java.io.*;
+public class SelectionSort
+{
+	void sort(int arr[])
+	{
+		int n = arr.length;
+
+		for (int i = 0; i &lt; n-1; i++)
+		{
+			int min_idx = i;
+			for (int j = i+1; j &lt; n; j++)
+				if (arr[j] &lt; arr[min_idx])
+					min_idx = j;
+
+			int temp = arr[min_idx];
+			arr[min_idx] = arr[i];
+			arr[i] = temp;
+		}
+	}
+
+	void printArray(int arr[])
+	{
+		int n = arr.length;
+		for (int i=0; i &lt; n; ++i)
+			System.out.print(arr[i]+" ");
+		System.out.println();
+	}
+
+	public static void main(String args[])
+	{
+		SelectionSort ob = new SelectionSort();
+		int arr[] = {64,25,12,22,11};
+		ob.sort(arr);
+		System.out.println("Sorted array");
+		ob.printArray(arr);
+	}
+}
+			</code>
+		</pre>
+		
+		<hr>
+		
+		<h2 id="id3"> Insertion Sort</h2>
+		<pre>
+			<code>
+import java.io.*;
+public class InsertionSort {
+	void sort(int arr[])
+	{
+		int n = arr.length;
+		for (int i = 1; i &lt; n; ++i) {
+			int key = arr[i];
+			int j = i - 1;
+
+			/* Move elements of arr[0..i-1], that are
+			greater than key, to one position ahead
+			of their current position */
+			while (j &gt;= 0 && arr[j] > key) {
+				arr[j + 1] = arr[j];
+				j = j - 1;
+			}
+			arr[j + 1] = key;
+		}
+	}
+
+	static void printArray(int arr[])
+	{
+		int n = arr.length;
+		for (int i = 0; i &lt; n; ++i)
+			System.out.print(arr[i] + " ");
+
+		System.out.println();
+	}
+
+	public static void main(String args[])
+	{
+		int arr[] = { 12, 11, 13, 5, 6 };
+
+		InsertionSort ob = new InsertionSort();
+		ob.sort(arr);
+
+		printArray(arr);
+	}
+}
+			</code>
+		</pre>
+		
+		<hr>
+		
+		<h2 id="id4"> Merge Sort</h2>
+		<pre>
+			<code>
+import java.io.*;
+class MergeSort {
+
+	void merge(int arr[], int l, int m, int r)
+	{
+		int n1 = m - l + 1;
+		int n2 = r - m;
+
+		int L[] = new int[n1];
+		int R[] = new int[n2];
+
+		for (int i = 0; i &lt; n1; ++i)
+			L[i] = arr[l + i];
+		for (int j = 0; j &lt; n2; ++j)
+			R[j] = arr[m + 1 + j];
+
+		int i = 0, j = 0;
+
+		int k = l;
+		while (i &lt; n1 && j &lt; n2) {
+			if (L[i] &lt;= R[j]) {
+				arr[k] = L[i];
+				i++;
+			}
+			else {
+				arr[k] = R[j];
+				j++;
+			}
+			k++;
+		}
+
+		while (i &lt; n1) {
+			arr[k] = L[i];
+			i++;
+			k++;
+		}
+
+		while (j &lt; n2) {
+			arr[k] = R[j];
+			j++;
+			k++;
+		}
+	}
+
+	void sort(int arr[], int l, int r)
+	{
+		if (l &lt; r) {
+
+			int m = l + (r - l) / 2;
+
+			sort(arr, l, m);
+			sort(arr, m + 1, r);
+
+			merge(arr, l, m, r);
+		}
+	}
+
+	static void printArray(int arr[])
+	{
+		int n = arr.length;
+		for (int i = 0; i &lt; n; ++i)
+			System.out.print(arr[i] + " ");
+		System.out.println();
+	}
+
+	public static void main(String args[])
+	{
+		int arr[] = { 12, 11, 13, 5, 6, 7 };
+
+		System.out.println("Given array is");
+		printArray(arr);
+
+		MergeSort ob = new MergeSort();
+		ob.sort(arr, 0, arr.length - 1);
+
+		System.out.println("\nSorted array is");
+		printArray(arr);
+	}
+}
+			</code>
+		</pre>
+		
+		<hr>
+		
+		<h2 id="id5">Quick Sort</h2>
+		<pre>
+			<code>
+import java.io.*;
+class QuickSort{
+
+	// A utility function to swap two elements
+	static void swap(int[] arr, int i, int j)
+	{
+		int temp = arr[i];
+		arr[i] = arr[j];
+		arr[j] = temp;
+	}
+
+	static int partition(int[] arr, int low, int high)
+	{
+		int pivot = arr[high];
+
+		int i = (low - 1);
+
+		for (int j = low; j &lt;= high - 1; j++) {
+
+			if (arr[j] &lt; pivot) {
+
+				i++;
+				swap(arr, i, j);
+			}
+		}
+		swap(arr, i + 1, high);
+		return (i + 1);
+	}
+
+	static void quickSort(int[] arr, int low, int high)
+	{
+		if (low &lt; high) {
+
+			int pi = partition(arr, low, high);
+
+			quickSort(arr, low, pi - 1);
+			quickSort(arr, pi + 1, high);
+		}
+	}
+	public static void printArr(int[] arr)
+	{
+		for (int i = 0; i &lt; arr.length; i++) {
+			System.out.print(arr[i] + " ");
+		}
+	}
+
+	public static void main(String[] args)
+	{
+		int[] arr = { 10, 7, 8, 9, 1, 5 };
+		int N = arr.length;
+
+		// Function call
+		quickSort(arr, 0, N - 1);
+		System.out.println("Sorted array:");
+		printArr(arr);
+	}
+}
+			</code>
+		</pre>
+	</body>
+</html>

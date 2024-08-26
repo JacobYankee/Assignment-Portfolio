@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!--Jacob Yankee
+COSC 436
+Maniccam
+Homework 2-->
+<!--Reference the code from question 7 and question 13-->
+<html lang="en">
+    <head>
+        <title>ID and Password Generator</title>
+        <style>
+            body{
+                text-align: center;
+                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                font-size: 105%;
+                background-color: blanchedalmond;
+            }
+            hr{
+	            height:2px;
+	            border-width:0;
+	            color:black;
+	            background-color:dimgrey;
+	        }
+            #error{
+                color:red;
+                width: 200px;
+                position: fixed;
+                right:30px;
+                top:150px;
+                background-color: white;
+                
+            }
+        </style>
+
+        <script>
+            function generate()
+            {
+                var t1 = document.getElementById("fname");
+                var t2 = document.getElementById("lname");
+                var t3 = document.getElementById("phone");
+                
+                var fname = t1.value;
+                var lname = t2.value;
+                var phone = t3.value;
+                //conditional statement to check every single box for errors
+                if(fname.length < 2 || fname.search(/^[a-zA-Z]+$/) !== 0||lname.length < 2 || lname.search(/^[a-zA-Z]+$/) !== 0 || phone.search(/^\d{3}-\d{3}-\d{4}$/) !== 0)
+                {
+                    document.getElementById("error").innerHTML ="Formatting error: Names must be at least two characters and can only contain letters. Phone numbers must be written in the xxx-xxx-xxxx format.";
+                    //removes id and password if format is incorrect
+                    document.getElementById("output").innerHTML = "";
+                }
+                else
+                {
+                    //username and password generated similarly to question 7
+                    fname = fname.toUpperCase();
+                    lname = lname.toUpperCase();
+                    var f1 = fname.charAt(0);
+                    var f2 = fname.charAt(fname.length -1);
+                    var user = f1 + lname;
+                    let ph = phone.split("-");
+                    var l1 = lname.substring(0,3);
+                    var pass = f2 + l1+ ph[2];
+                    document.getElementById("output").innerHTML ="ID: "+ user + " Password: "+ pass;
+                    //removes error message if input is correct
+					document.getElementById("error").innerHTML ="";
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <h1>ID and Password Generator</h1>
+        <h2>Create a memorable ID and a super secure password</h2>
+        <hr>
+        <h3>Enter your first name, last name, and phone numbers into the boxes</h3>
+        <input type="text" maxlength="10" id = "fname" placeholder="First name"></input>
+        <input type="text" maxlength="10" id = "lname" placeholder="Last name"></input>
+        <input type="text" id = "phone" placeholder="Phone number"></input>
+        <br>
+        <button onclick ="generate()"> Calculate</button>
+        <p id = "output"> </p>
+        <p id="error"><b> </b></p>
+    </body>
+</html>

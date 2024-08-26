@@ -1,0 +1,46 @@
+<!--Jacob Yankee
+COSC 436
+Maniccam
+Homework 3-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Compound Interest Calculator</title>
+        <style>
+            body{
+                text-align:center;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                background-color:lightgoldenrodyellow;
+            }
+            hr{
+                height:2px;
+				border-width:0;
+				color:darkslategray;
+				background-color:darkslategray;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>Compound Interest Calculator</h1>
+        <hr>
+        <h4>Calcuate the compound interest with the function p(1 + r/100)^n</h4>
+        <h5>Use the text boxes to enter an Amount(p), an Interest Rate(r), and the Years(n)</h5>
+        <!--get values using form, send to php file-->
+        <form action = "http://localhost/q10.php" method="post">
+            <label>Amount:</label>
+            <input type = "text" id = "p" name = "p">
+            <label>Interest Rate:</label>
+            <input type = "text" id = "r" name = "r">
+            <label>Years:</label>
+            <input type = "text" id = "n" name = "n">
+            <br>
+            <input type = "submit">
+            <input type = "reset">
+        </form>
+
+        
+
+    </body>
+    
+</html>

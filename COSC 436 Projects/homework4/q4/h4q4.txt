@@ -1,0 +1,19 @@
+===Database h4q4
+
+== Table structure for table user
+
+|------
+|Column|Type|Null|Default
+|------
+|//**id**//|varchar(20)|No|
+|pwd|varchar(20)|No|
+|realName|varchar(20)|No|
+|email|varchar(30)|No|
+|pageVisits|int(11)|No|
+|lastVisit|varchar(150)|No|
+== Dumping data for table user
+
+|bobman12|passway|bob|bob@email.com|2|Friday, 12/08/2023 @ 12:57pm
+|test|password|earl|earl@earl.com|3|Thursday, 12/07/2023 @ 08:06pm
+|test1|password2|kevin|kev@in.com|0| 
+|user|password|Name|E@mail.com|2|Friday, 12/08/2023 @ 01:29pm

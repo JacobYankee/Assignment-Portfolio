@@ -1,0 +1,54 @@
+/*Style sheet for question 9 stylized emu offices
+Jacob Yankee
+COSC 436
+Maniccam
+Homework 1*/
+table, tr, td{
+	margin-left:auto;
+	margin-right:auto;
+	border: 1px solid white;
+	border-collapse:collapse;
+	width:50%;
+	height:50%;
+	padding:5px;
+	}
+/*table must have its own background color style set as giving table row the background color prevents tr:hover from working*/
+table{
+	background-color:forestgreen;
+	}
+tr:hover {background-color:lawngreen;}
+th{
+	background-color:seagreen;
+	}
+body{
+	font-family:Arial, sans-serif;
+	color:ghostwhite;
+	font-size:110%;
+	background-image:url('https://www.emich.edu/communications/images/zoom-wallpapers/emu-background-option-5.jpg');
+	/*background size and repeat are specified to prevent tiling*/
+	background-size: 1920px 1080px;
+	background-repeat:no-repeat;
+	}
+hr{
+	height:2px;
+	border-width:0;
+	color:black;
+	background-color:lawngreen;
+	}
+h1, h2{
+	background-color:seagreen;
+	width:35%;
+	text-align:center;
+	margin-left:auto;
+	margin-right:auto;
+	border: 5px solid white;
+	padding:5px;
+	}
+a{
+	text-decoration:none;
+	}	
+/*keeps links the same color at all times*/
+a:link {color:mintcream;}
+a:visited {color:mintcream;}
+a:hover {color:mintcream;}
+a:active {color:mintcream;}
