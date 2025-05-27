@@ -1,0 +1,11 @@
+6
+
+1
+1
+1
+1
+1
+0
+
+Validation error: 75.0
+Number of nearest neighbors: 5

@@ -1,0 +1,18 @@
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+Total buying price: 161
+Total expected profit: 161
+Population size: 150
+String length: 10
+Crossover rate: 0.5
+Mutation rate: 0.05
+Iterations: 2000
+Seed: 4329

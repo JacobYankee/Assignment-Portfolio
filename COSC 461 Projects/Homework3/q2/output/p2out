@@ -1,0 +1,14 @@
+low 
+high 
+high 
+undetermined 
+medium 
+undetermined 
+medium 
+medium 
+
+Validation error: 0.4
+Hidden nodes: 4
+Learning rate: 0.5
+Iterations: 100000
+Seed: 2375
